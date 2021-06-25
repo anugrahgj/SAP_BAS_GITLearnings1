@@ -1,0 +1,77 @@
+<mvc:View
+    controllerName="test.anu.git.gitlearnings1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+            <content>
+                <Table id="idProductsTable"
+		inset="false"
+		items="{
+			path: '/SEPMRA_I_Product_E',
+			sorter: {
+				path: 'Product'
+			}
+		}">
+        <columns>
+			<Column
+				width="12em">
+				<Text text="Product Id" />
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Supplier" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="End">
+				<Text text="Dimensions" />
+			</Column>
+			<Column
+				minScreenWidth="Desktop"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Weight" />
+			</Column>
+			<Column
+				hAlign="End">
+				<Text text="Price" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier
+						title="{ProductCategory}"
+						text="{Product}"/>
+					<Text
+						text="{Supplier}" />
+					<Text
+						text="{Width} x {Depth} x {Height} {DimensionUnit}" />
+					<ObjectNumber
+						number="{Weight}"
+						unit="{WeightUnit}"
+						/>
+					<ObjectNumber
+							number="{
+								parts:[{path:'Price'},{path:'Currency'}],
+								type: 'sap.ui.model.type.Currency',
+								formatOptions: {showMeasure: false}
+							}"
+							unit="{Currency}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+        </Table>
+            </content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
